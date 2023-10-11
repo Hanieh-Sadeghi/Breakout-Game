@@ -67,5 +67,12 @@ canvas {
   width: 400px;
   padding: 20px;
   line-height: 1.5;
+  border: solid 1px;
+  border-radius: 35px 0;
   transform: translateX(-400px);
+  transition: transform 2s ease-in-out; 
 }
+
+ .rules.show {
+    transform: translateX(0);
+ }
