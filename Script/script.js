@@ -88,23 +88,105 @@ function drawBricks() {
     column.forEach((brick) => {
       ctx.beginPath();
       ctx.rect(brick.x, brick.y, brick.w, brick.h);
-      ctx.fillStyle = brick.visible ? " #052222" : "transparent";
+      ctx.fillStyle = brick.visible ? " #5c83555" : "transparent";
       ctx.fill();
       ctx.closePath();
     });
   });
 }
 
+// Move padd on canvas
+
+function movePaddle() {
+  paddle.x += paddle.dx;
+
+  // Wall detection
+  if (paddle.x + paddle.w > canvas.width) {
+    paddle.x = canvas.width - paddle.w;
+  }
+
+  if (paddle.x < 0) {
+    paddle.x = 0;
+  }
+}
+
+// Move ball on canvas
+
+function moveBall() {
+  ball.x += ball.dx;
+  ball.y += ball.dy;
+
+  // Wall collision (right\left)
+  if (ball.x + ball.size > canvas.width || ball.x - ball.size < 0) {
+    ball.dx *= -1;
+  }
+
+  // Wall collision (bottom\top)
+  if (ball.y + ball.size > canvas.height || ball.y - ball.size < 0) {
+    ball.dy *= -1;
+  }
+
+  // paddle collision
+  if (
+    ball.x - ball.size > paddle.x &&
+    ball.x + ball.size < paddle.x + paddle.w &&
+    ball.y + ball.size > paddle.y
+  ) {
+    ball.dy = -ball.speed;
+  }
+}
+
 // Draw everything
 
 function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   drawBall();
   draPaddle();
   drawScore();
-  drawBricks()
+  drawBricks();
 }
 
-draw();
+// Update camvas drawing and animation
+
+function update() {
+  movePaddle();
+  moveBall();
+
+  //Draw everything
+  draw();
+
+  requestAnimationFrame(update);
+}
+
+update();
+
+// Keydown event
+
+function keydown(e) {
+  if (e.key === "Right" || e.key === "ArrowRight") {
+    paddle.dx = paddle.speed;
+  } else if (e.key === "Left" || e.key === "ArrowLeft") {
+    paddle.dx = -paddle.speed;
+  }
+}
+
+// keyUp event
+
+function keyUp(e) {
+  if (
+    e.key === "Right" ||
+    e.key === "ArrowRight" ||
+    e.key === "Left" ||
+    e.key === "ArrowLeft"
+  ) {
+    paddle.dx = 0;
+  }
+}
+
+//Keyboard event handlers
+document.addEventListener("keydown", keydown);
+document.addEventListener("keyup", keyUp);
 
 // Rules and close event handers
 
