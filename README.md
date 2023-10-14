@@ -1,8 +1,8 @@
 <h1>Breakout Game</h1>
-    <p align="center">
+    <p >
         <img src="./img/img1.png" width="250" height="150" />
         <img src="./img/img2.png" width="250" height="150" />
-        <img src="./img/img3.png" width="50" height="150" />
+        <img src="./img/img3.png" width="250" height="150" />
     </p>
     <h3>Description</h3>
     <p>
