@@ -20,8 +20,7 @@
     <ol>
       <li>
         <p>1. Download or clone the game repository from:</p>
-        <pre><code>git clone https://github.com/Hanieh-Sadeghi/Breakout-Game.git
-    </code></pre>
+        <pre><code> git clone https://github.com/Hanieh-Sadeghi/Breakout-Game.git </code></pre>
         <p>2. Open the index.html file in your web browser.</p>
       </li>
     </ol>
