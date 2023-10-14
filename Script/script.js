@@ -10,7 +10,6 @@ const brickRowCount = 9;
 const brickColumnCount = 5;
 
 // Create ball props
-
 const ball = {
   x: canvas.width / 2,
   y: canvas.height / 2,
@@ -76,7 +75,7 @@ function drawPaddle() {
 // Draw score oon canvas
 
 function drawScore() {
-  ctx.font = "20px Arial";
+  ctx.font = "20px Poppins";
   ctx.fillText(`Score: ${score}`, canvas.width - 100, 30);
 }
 
@@ -87,7 +86,7 @@ function drawBricks() {
     column.forEach((brick) => {
       ctx.beginPath();
       ctx.rect(brick.x, brick.y, brick.w, brick.h);
-      ctx.fillStyle = brick.visible ? "#173a3a" : "Poppins";
+      ctx.fillStyle = brick.visible ? "#173a3a" : "transparent";
       ctx.fill();
       ctx.closePath();
     });
