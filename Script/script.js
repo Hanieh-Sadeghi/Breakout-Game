@@ -245,3 +245,7 @@ rightBtn.addEventListener("touchstart", () => paddle.dx = paddle.speed);
 leftBtn.addEventListener("touchstart", () => paddle.dx = -paddle.speed);
 rightBtn.addEventListener("touchend", () => paddle.dx = 0);
 leftBtn.addEventListener("touchend", () => paddle.dx = 0);
+rightBtn.addEventListener("mousedown", () => paddle.dx = paddle.speed);
+leftBtn.addEventListener("mousedown", () => paddle.dx = -paddle.speed);
+rightBtn.addEventListener("mouseup", () => paddle.dx = 0);
+leftBtn.addEventListener("mouseup", () => paddle.dx = 0);
