@@ -33,7 +33,7 @@ h1 {
 }
 
 .canvas-container{
-  width: 100%;
+  width: 80vh;
   height: 60vh;
 }
 
@@ -90,4 +90,11 @@ canvas {
 
  .rules.show {
     transform: translateX(0);
+ }
+
+ @media (max-width: 700px){
+     .canvas-container{
+         width: 80vw;
+         height: 60vw;
+     }
  }
