@@ -1,5 +1,7 @@
 const rulesBtn = document.getElementById("rules-btn");
 const closeBtn = document.getElementById("close-btn");
+const rightBtn = document.getElementById("right-button")
+const leftBtn = document.getElementById("left-button")
 const rules = document.getElementById("rules");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -239,4 +241,11 @@ document.addEventListener("keyup", keyUp);
 
 rulesBtn.addEventListener("click", () => rules.classList.add("show"));
 closeBtn.addEventListener("click", () => rules.classList.remove("show"));
-إ
+rightBtn.addEventListener("touchstart", () => paddle.dx = paddle.speed);
+leftBtn.addEventListener("touchstart", () => paddle.dx = -paddle.speed);
+rightBtn.addEventListener("touchend", () => paddle.dx = 0);
+leftBtn.addEventListener("touchend", () => paddle.dx = 0);
+rightBtn.addEventListener("mousedown", () => paddle.dx = paddle.speed);
+leftBtn.addEventListener("mousedown", () => paddle.dx = -paddle.speed);
+rightBtn.addEventListener("mouseup", () => paddle.dx = 0);
+leftBtn.addEventListener("mouseup", () => paddle.dx = 0);
